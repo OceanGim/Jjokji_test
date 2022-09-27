@@ -1,10 +1,7 @@
 from django.db import models
-from django.utils import timezone
-from django.urls import reverse
+from django.forms import DateTimeField
+
 # Create your models here.
 class AccessLog(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    location = models.charfield(max_lenth=100)
-    
-    def __str__(self):
-        return self.created_at
+    create_at = models.DateTimeField("생성 시간", auto_now_add=True)
+    location = models.CharField("접속 경로", max_length=50)
